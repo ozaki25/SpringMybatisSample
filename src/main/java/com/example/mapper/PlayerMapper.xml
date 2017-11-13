@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.PlayerMapper">
+   <select id="findAll" resultType="com.example.domain.Player">
+      select * from player
+   </select>
+   <select id="findOne" resultType="com.example.domain.Player">
+      select * from player where id = #{id}
+   </select>
+   <insert id="save" useGeneratedKeys="true" keyProperty="id">
+     insert into player (name, team, position) values (#{name}, #{team}, #{position})
+   </insert>
+   <update id="update">
+     update player set name = #{name}, team = #{team}, position = #{position} where id = #{id}
+   </update>
+   <delete id="delete">
+     delete from player where id = #{id}
+   </delete>
+</mapper>
