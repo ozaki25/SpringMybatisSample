@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout">
+  <head>
+    <title>Show Player</title>
+  </head>
+  <body>
+    <div class="panel panel-primary" layout:fragment="content">
+      <div class="panel-heading">Show Player</div>
+      <div class="panel-body">
+        <div class="form-horizontal" th:object="${player}">
+          <div class="form-group">
+            <label class="col-md-3 control-label">Name</label>
+            <div class="col-md-9 form-control-static" th:text="*{name}"></div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label">Team</label>
+            <div class="col-md-9 form-control-static" th:text="*{team}"></div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label">Position</label>
+            <div class="col-md-9 form-control-static" th:text="*{position}"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

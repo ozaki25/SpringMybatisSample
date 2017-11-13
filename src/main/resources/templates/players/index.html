@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout">
+  <head>
+    <title>Listing Players</title>
+  </head>
+  <body>
+    <div class="panel panel-primary" layout:fragment="content">
+      <div class="panel-heading">
+        Listing Players
+        <a href="/players/new" class="btn btn-default btn-xs pull-right">New</a>
+      </div>
+      <div class="panel-body" th:if="!${players.size()}">
+        <p>Players are empty</p>
+      </div>
+      <table class="table" th:if="${players.size()}">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Team</th>
+            <th>Position</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="player:${players}" th:object="${player}">
+            <td th:text="*{id}"></td>
+            <td th:text="*{name}"></td>
+            <td th:text="*{team}"></td>
+            <td th:text="*{position}"></td>
+            <td><a class="btn btn-default btn-xs" th:href="@{/players/{id}(id=*{id})}">Show</a></td>
+            <td><a class="btn btn-default btn-xs" th:href="@{/players/{id}/edit(id=*{id})}">Edit</a></td>
+            <td>
+              <form th:action="@{/players/{id}(id=*{id})}" th:method="delete">
+                <button class="btn btn-default btn-xs">Destory</button>
+              </form>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

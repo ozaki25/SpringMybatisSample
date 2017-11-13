@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout">
+  <head>
+    <title>Editing Player</title>
+  </head>
+  <body>
+    <div class="panel panel-primary" layout:fragment="content">
+      <div class="panel-heading">Editing Player</div>
+      <div class="panel-body">
+        <form class="form-horizontal" th:action="@{/players/{id}(id=*{id})}" th:method="put" th:object="${player}">
+          <div class="form-group">
+            <label class="col-md-3 control-label">Name</label>
+            <div class="col-md-9">
+              <input class="form-control" type="text" th:field="*{name}" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label">Team</label>
+            <div class="col-md-9">
+              <input class="form-control" type="text" th:field="*{team}" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label">Position</label>
+            <div class="col-md-9">
+              <input class="form-control" type="text" th:field="*{position}" />
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-offset-3 col-md-9">
+              <button class="btn btn-primary">Update</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
