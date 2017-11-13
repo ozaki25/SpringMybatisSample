@@ -7,35 +7,35 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.domain.Player;
-import com.example.repository.PlayerRepository;
+import com.example.mapper.PlayerMapper;
 
 @Service
 public class PlayerService {
     @Autowired
-    private PlayerRepository playerRepository;
+    private PlayerMapper playerMapper;
 
     @Transactional
     public List<Player> findAll() {
-        return playerRepository.findAll();
+        return playerMapper.findAll();
     }
 
     @Transactional
     public Player findOne(Long id) {
-        return playerRepository.findOne(id);
+        return playerMapper.findOne(id);
     }
 
     @Transactional
     public void save(Player player) {
-        playerRepository.save(player);
+        playerMapper.save(player);
     }
 
     @Transactional
     public void update(Player player) {
-        playerRepository.save(player);
+        playerMapper.update(player);
     }
 
     @Transactional
     public void delete(Long id) {
-        playerRepository.delete(id);
+        playerMapper.delete(id);
     }
 }
